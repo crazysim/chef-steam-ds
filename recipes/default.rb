@@ -11,6 +11,5 @@ group 'hlds'
 
 user "hlds" do
   group "hlds"
-  system true
   shell "/bin/bash"
 end
