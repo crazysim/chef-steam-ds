@@ -18,8 +18,8 @@ Vagrant::Config.run do |config|
 
   config.vm.host_name = "hlds-berkshelf"
 
-  config.vm.box = "precise32"
-  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+  config.vm.box = "mf-precise64"
+  config.vm.box_url = "http://boxes.mindflakes.com/mf-precise64.box"
 
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
