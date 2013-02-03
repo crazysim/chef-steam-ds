@@ -1,8 +1,8 @@
-name             "hlds"
+name             "steam-ds"
 maintainer       "YOUR_NAME"
 maintainer_email "YOUR_EMAIL"
 license          "All rights reserved"
-description      "Installs/Configures hlds"
+description      "Installs/Configures steam-ds"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.1.0"
 

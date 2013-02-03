@@ -16,7 +16,7 @@ Vagrant::Config.run do |config|
   # to skip installing and copying to Vagrant's shelf.
   # config.berkshelf.except = []
 
-  config.vm.host_name = "hlds-berkshelf"
+  config.vm.host_name = "steam-ds-berkshelf"
 
   config.vm.box = "mf-precise64"
   config.vm.box_url = "http://boxes.mindflakes.com/mf-precise64.box"
@@ -58,7 +58,7 @@ Vagrant::Config.run do |config|
     }
 
     chef.run_list = [
-      "recipe[hlds::default]"
+      "recipe[steam-ds::default]"
     ]
   end
 end
