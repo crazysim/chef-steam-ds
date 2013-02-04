@@ -25,4 +25,6 @@ remote_file "/opt/steam-ds/hldsupdatetool.bin" do
   source "http://storefront.steampowered.com/download/hldsupdatetool.bin"
   # This file hasn't changed since 2005
   action :create_if_missing
+  owner "steam-ds"
+  group "steam-ds"
 end
