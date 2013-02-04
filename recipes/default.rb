@@ -27,4 +27,5 @@ remote_file "/opt/steam-ds/hldsupdatetool.bin" do
   action :create_if_missing
   owner "steam-ds"
   group "steam-ds"
+  mode "755"
 end
