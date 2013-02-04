@@ -26,9 +26,11 @@ remote_file "/home/steam-ds/hldsupdatetool.bin" do
 end
 
 execute "echo yes | /home/steam-ds/hldsupdatetool.bin" do
+  cwd "/home/steam-ds"
   user "steam-ds"
 end
 
-execute "/home/steam-ds/steam" do
+execute "! /home/steam-ds/steam" do
+  cwd "/home/steam-ds"
   user "steam-ds"
 end
