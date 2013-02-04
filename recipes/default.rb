@@ -21,6 +21,10 @@ directory "/opt/steam-ds" do
   action :create
 end
 
+package "ia32-libs" do
+  action :install
+end
+
 remote_file "/opt/steam-ds/hldsupdatetool.bin" do
   source "http://storefront.steampowered.com/download/hldsupdatetool.bin"
   # This file hasn't changed since 2005
