@@ -13,6 +13,7 @@ user_account "steam-ds"
 
 package "ia32-libs" do
   action :install
+  only_if {['foo'].pack('p').size == 8}
 end
 
 remote_file "/home/steam-ds/hldsupdatetool.bin" do
