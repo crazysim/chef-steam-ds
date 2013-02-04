@@ -12,6 +12,7 @@ group 'steam-ds'
 user "steam-ds" do
   group "steam-ds"
   shell "/bin/bash"
+  home "/home/steam-ds"
 end
 
 directory "/opt/steam-ds" do
