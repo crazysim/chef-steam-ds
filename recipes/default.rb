@@ -7,26 +7,15 @@
 # All rights reserved - Do Not Redistribute
 #
 
-group 'steam-ds'
+include_recipe 'user'
 
-user "steam-ds" do
-  group "steam-ds"
-  shell "/bin/bash"
-  home "/home/steam-ds"
-end
-
-directory "/opt/steam-ds" do
-  owner "steam-ds"
-  group "steam-ds"
-  mode "755"
-  action :create
-end
+user_account "steam-ds"
 
 package "ia32-libs" do
   action :install
 end
 
-remote_file "/opt/steam-ds/hldsupdatetool.bin" do
+remote_file "/home/steam-ds/hldsupdatetool.bin" do
   source "http://storefront.steampowered.com/download/hldsupdatetool.bin"
   # This file hasn't changed since 2005
   action :create_if_missing
