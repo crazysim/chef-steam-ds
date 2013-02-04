@@ -24,3 +24,11 @@ remote_file "/home/steam-ds/hldsupdatetool.bin" do
   group "steam-ds"
   mode "755"
 end
+
+execute "echo yes | /home/steam-ds/hldsupdatetool.bin" do
+  user "steam-ds"
+end
+
+execute "/home/steam-ds/steam" do
+  user "steam-ds"
+end
