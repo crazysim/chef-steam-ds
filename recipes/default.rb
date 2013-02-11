@@ -30,7 +30,11 @@ execute "echo yes | /home/steam-ds/hldsupdatetool.bin" do
   user "steam-ds"
 end
 
-execute "! /home/steam-ds/steam" do
-  cwd "/home/steam-ds"
-  user "steam-ds"
+2.times do
+  execute "/home/steam-ds/steam" do
+    cwd "/home/steam-ds"
+    user "steam-ds"
+    # Sometimes it updates
+    returns [0,1]
+  end
 end
