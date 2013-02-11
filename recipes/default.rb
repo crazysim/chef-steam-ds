@@ -7,33 +7,43 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe 'user'
+user node['steam']['user'] do
+  action :create
+  home node['steam']['dir']
+  shell '/bin/sh'
+  system true
+end
 
-user_account "steam-ds"
+directory node['steam']['dir'] do
+  owner node['steam']['user']
+  group node['steam']['user']
+  mode "0755"
+  action :create
+end
 
 package "ia32-libs" do
   action :install
   only_if {['foo'].pack('p').size == 8}
 end
 
-remote_file "/home/steam-ds/hldsupdatetool.bin" do
+remote_file "#{node['steam']['dir']}/hldsupdatetool.bin" do
   source "http://storefront.steampowered.com/download/hldsupdatetool.bin"
   # This file hasn't changed since 2005
   action :create_if_missing
-  owner "steam-ds"
-  group "steam-ds"
+  owner node['steam']['user']
+  group node['steam']['user']
   mode "755"
 end
 
-execute "echo yes | /home/steam-ds/hldsupdatetool.bin" do
-  cwd "/home/steam-ds"
-  user "steam-ds"
+execute "echo yes | /srv/steam/hldsupdatetool.bin" do
+  cwd node['steam']['dir']
+  user node['steam']['user']
 end
 
 2.times do
-  execute "/home/steam-ds/steam" do
-    cwd "/home/steam-ds"
-    user "steam-ds"
+  execute "#{node['steam']['dir']}/steam" do
+    cwd node['steam']['dir']
+    user node['steam']['user']
     # Sometimes it updates
     returns [0,1]
   end
