@@ -10,7 +10,7 @@
 user node['steam']['user'] do
   action :create
   home node['steam']['dir']
-  shell '/bin/sh'
+  shell '/bin/bash'
   system true
 end
 
