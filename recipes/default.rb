@@ -35,16 +35,17 @@ remote_file "#{node['steam']['dir']}/hldsupdatetool.bin" do
   mode "755"
 end
 
-execute "echo yes | /srv/steam/hldsupdatetool.bin" do
+execute "echo yes | #{node['steam']['dir']}/hldsupdatetool.bin" do
   cwd node['steam']['dir']
   user node['steam']['user']
 end
 
+# Run steam twice
 2.times do
   execute "#{node['steam']['dir']}/steam" do
     cwd node['steam']['dir']
     user node['steam']['user']
-    # Sometimes it updates
+    # Sometimes it updates and it returns 1 on successful update
     returns [0,1]
   end
 end
