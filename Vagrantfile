@@ -59,7 +59,8 @@ Vagrant::Config.run do |config|
 
     chef.run_list = [
       "recipe[apt]",
-      "recipe[steam-ds::default]"
+      "recipe[steam-ds::default]",
+      "recipe[steam-ds::cstrike]"
     ]
   end
 end
