@@ -38,6 +38,7 @@ end
 execute "echo yes | #{node['steam']['dir']}/hldsupdatetool.bin" do
   cwd node['steam']['dir']
   user node['steam']['user']
+  creates "#{node['steam']['dir']}/steam"
 end
 
 # Run steam twice
